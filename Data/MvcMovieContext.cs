@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Models;
-
+using DemoMVC.Models;
+namespace DemoMVC.Data{
     public class MvcMovieContext : DbContext
     {
         public MvcMovieContext (DbContextOptions<MvcMovieContext> options)
@@ -12,7 +12,9 @@ using MvcMovie.Models;
         {
         }
 
-        public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
+        public DbSet<Movie> Movie { get; set; }
 
-        public DbSet<MvcMovie.Models.Student> Student { get; set; }
+        public DbSet<Student> Student { get; set; }
     }
+
+}
