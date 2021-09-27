@@ -7,6 +7,9 @@ namespace DemoMVC.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required(ErrorMessage ="Title is required.")]
+        [MaxLength(20)]
+        [MinLength(3)]
         public string Title { get; set; }
 
         [DataType(DataType.Date)]
