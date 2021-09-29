@@ -1,20 +1,34 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoMVC.Models
 {
     public class Movie
     {
-        [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage ="Title is required.")]
-        [MaxLength(20)]
-        [MinLength(3)]
+    
+        [StringLength(60, MinimumLength = 3)]
+        [Required]
+        [Column(TypeName="nvarchar(50")]
         public string Title { get; set; }
-
+    
+        [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-        public string Genre { get; set; }
+    
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
+    
+        [Required]
+        [StringLength(30)]
+        public string Genre { get; set; }
+    
+        [StringLength(5)]
+        [Required]
+        public string Rating { get; set; }
+
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }
